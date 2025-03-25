@@ -3,6 +3,71 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Primary colors as RGB values */
+  --primary-50: 240, 249, 255;
+  --primary-100: 224, 242, 254;
+  --primary-200: 186, 230, 253;
+  --primary-300: 125, 211, 252;
+  --primary-400: 56, 189, 248;
+  --primary-500: 14, 165, 233;
+  --primary-600: 2, 132, 199;
+  --primary-700: 3, 105, 161;
+  --primary-800: 7, 89, 133;
+  --primary-900: 12, 74, 110;
+  --primary-950: 8, 47, 73;
+
+  /* Secondary colors as RGB values */
+  --secondary-50: 248, 250, 252;
+  --secondary-100: 241, 245, 249;
+  --secondary-200: 226, 232, 240;
+  --secondary-300: 203, 213, 225;
+  --secondary-400: 148, 163, 184;
+  --secondary-500: 100, 116, 139;
+  --secondary-600: 71, 85, 105;
+  --secondary-700: 51, 65, 85;
+  --secondary-800: 30, 41, 59;
+  --secondary-900: 15, 23, 42;
+  --secondary-950: 2, 6, 23;
+
+  /* Success colors as RGB values */
+  --success-50: 240, 253, 244;
+  --success-100: 220, 252, 231;
+  --success-200: 187, 247, 208;
+  --success-300: 134, 239, 172;
+  --success-400: 74, 222, 128;
+  --success-500: 34, 197, 94;
+  --success-600: 22, 163, 74;
+  --success-700: 21, 128, 61;
+  --success-800: 22, 101, 52;
+  --success-900: 20, 83, 45;
+  --success-950: 5, 46, 22;
+
+  /* Warning colors as RGB values */
+  --warning-50: 255, 251, 235;
+  --warning-100: 254, 243, 199;
+  --warning-200: 253, 230, 138;
+  --warning-300: 252, 211, 77;
+  --warning-400: 251, 191, 36;
+  --warning-500: 245, 158, 11;
+  --warning-600: 217, 119, 6;
+  --warning-700: 180, 83, 9;
+  --warning-800: 146, 64, 14;
+  --warning-900: 120, 53, 15;
+  --warning-950: 69, 26, 3;
+
+  /* Danger colors as RGB values */
+  --danger-50: 254, 242, 242;
+  --danger-100: 254, 226, 226;
+  --danger-200: 254, 202, 202;
+  --danger-300: 252, 165, 165;
+  --danger-400: 248, 113, 113;
+  --danger-500: 239, 68, 68;
+  --danger-600: 220, 38, 38;
+  --danger-700: 185, 28, 28;
+  --danger-800: 153, 27, 27;
+  --danger-900: 127, 29, 29;
+  --danger-950: 69, 10, 10;
 }
 
 @theme inline {
@@ -22,5 +87,49 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
 }
+
+/* Add fallback styles for older browsers */
+.text-primary-500 { color: rgb(14, 165, 233); }
+.text-primary-600 { color: rgb(2, 132, 199); }
+.text-primary-700 { color: rgb(3, 105, 161); }
+
+.text-secondary-500 { color: rgb(100, 116, 139); }
+.text-secondary-600 { color: rgb(71, 85, 105); }
+.text-secondary-700 { color: rgb(51, 65, 85); }
+.text-secondary-800 { color: rgb(30, 41, 59); }
+.text-secondary-900 { color: rgb(15, 23, 42); }
+
+.text-success-500 { color: rgb(34, 197, 94); }
+.text-success-600 { color: rgb(22, 163, 74); }
+
+.text-danger-500 { color: rgb(239, 68, 68); }
+.text-danger-600 { color: rgb(220, 38, 38); }
+
+.text-warning-500 { color: rgb(245, 158, 11); }
+.text-warning-600 { color: rgb(217, 119, 6); }
+
+.bg-primary-50 { background-color: rgb(240, 249, 255); }
+.bg-primary-500 { background-color: rgb(14, 165, 233); }
+.bg-primary-600 { background-color: rgb(2, 132, 199); }
+
+.bg-secondary-50 { background-color: rgb(248, 250, 252); }
+.bg-secondary-100 { background-color: rgb(241, 245, 249); }
+.bg-secondary-200 { background-color: rgb(226, 232, 240); }
+
+.bg-success-50 { background-color: rgb(240, 253, 244); }
+.bg-success-500 { background-color: rgb(34, 197, 94); }
+
+.bg-danger-50 { background-color: rgb(254, 242, 242); }
+.bg-danger-500 { background-color: rgb(239, 68, 68); }
+
+.bg-warning-50 { background-color: rgb(255, 251, 235); }
+.bg-warning-500 { background-color: rgb(245, 158, 11); }
+
+.border-primary-500 { border-color: rgb(14, 165, 233); }
+.border-primary-600 { border-color: rgb(2, 132, 199); }
+
+.border-secondary-100 { border-color: rgb(241, 245, 249); }
+.border-secondary-200 { border-color: rgb(226, 232, 240); }
+.border-secondary-300 { border-color: rgb(203, 213, 225); }

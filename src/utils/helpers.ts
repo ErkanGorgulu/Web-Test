@@ -1,10 +1,11 @@
 import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 /**
  * Combines multiple class names with Tailwind CSS
  */
 export function cn(...inputs: ClassValue[]) {
-  return clsx(inputs);
+  return twMerge(clsx(inputs));
 }
 
 /**
@@ -45,9 +46,9 @@ export const colors = {
  * Formats a date to a readable string
  */
 export function formatDate(date: Date | string): string {
-  const d = new Date(date);
+  const d = typeof date === "string" ? new Date(date) : date;
   return d.toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     day: "numeric",
     year: "numeric",
   });
@@ -57,7 +58,7 @@ export function formatDate(date: Date | string): string {
  * Generates a random ID
  */
 export function generateId(): string {
-  return Math.random().toString(36).substring(2, 9);
+  return Math.random().toString(36).substring(2, 10);
 }
 
 /**
@@ -85,4 +86,21 @@ export function getDaysRemaining(dueDate: Date | string | undefined): number {
 export function truncateString(str: string, maxLength: number): string {
   if (str.length <= maxLength) return str;
   return str.substring(0, maxLength) + "...";
+}
+
+/**
+ * Debounce function to limit function calls
+ * @param fn Function to debounce
+ * @param delay Delay in milliseconds
+ * @returns Debounced function
+ */
+export function debounce<T extends (...args: unknown[]) => unknown>(
+  fn: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let timeoutId: NodeJS.Timeout;
+  return function (...args: Parameters<T>) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  };
 }
